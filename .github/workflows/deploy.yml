@@ -23,6 +23,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no ${{ secrets.AZURE_USER }}@${{ secrets.AZURE_HOST }} << 'EOF'
         cd jwt-auth
         git pull origin main
-        npm install --production
+        npm install
+        npm run build
         pm2 restart node-app
         EOF
